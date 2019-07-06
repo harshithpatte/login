@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoClient = require('mongodb').MongoClient;
-var url = require('./config').dbUrl;
+var url = process.env.MONGOLAB_URI;
 
 router.post('/createaccount', (req, res) => {
   mongoClient.connect(url, (err, db) =>
